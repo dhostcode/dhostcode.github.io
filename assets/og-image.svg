@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0a0e0c"/>
+  <rect x="40" y="40" width="1120" height="550" rx="16" fill="none" stroke="#1f2b25" stroke-width="2"/>
+  <text x="600" y="300" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="72" font-weight="700" text-anchor="middle">
+    <tspan fill="#e6ece9">diego</tspan><tspan fill="#3ddc84">host</tspan>
+  </text>
+  <text x="600" y="356" font-family="Segoe UI, system-ui, sans-serif" font-size="28" fill="#e6ece9" text-anchor="middle">Desarrollador de Sistemas &#8212; Panam&#225;</text>
+  <text x="600" y="398" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="20" fill="#8a998f" text-anchor="middle">Sistemas de gesti&#243;n &#183; P&#225;ginas web &#183; Automatizaci&#243;n</text>
+  <g transform="translate(478,440)">
+    <rect x="0" y="0" width="244" height="44" rx="22" fill="#101512" stroke="#1f2b25"/>
+    <circle cx="26" cy="22" r="5" fill="#3ddc84"/>
+    <text x="44" y="28" font-family="Consolas, 'SFMono-Regular', Menlo, monospace" font-size="16" fill="#3ddc84">DISPONIBLE REMOTO</text>
+  </g>
+</svg>
