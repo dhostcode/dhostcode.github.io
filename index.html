@@ -6,6 +6,8 @@
   <title>diegohost — Desarrollador de Sistemas</title>
   <meta name="description" content="Diego Armando, desarrollador de sistemas en Panamá. Sistemas de gestión, páginas web y automatización de procesos, disponible para trabajo remoto.">
   <meta name="theme-color" content="#0a0e0c">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'none';">
   <link rel="canonical" href="https://diegohostcode.github.io/">
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230a0e0c'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Consolas,monospace'%20font-weight='700'%20font-size='34'%20fill='%233ddc84'%20text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
@@ -93,8 +95,25 @@
             </p>
             <p>
               Trabajo de forma remota con clientes que necesitan sistemas de gestión, páginas web o
-              procesos automatizados que les ahorren tiempo.
+              procesos automatizados que les ahorren tiempo — ofreciendo un servicio internacional,
+              adaptado a las necesidades específicas de cada proyecto.
             </p>
+
+            <div class="stack">
+              <p class="stack__label">Stack técnico</p>
+              <ul class="stack__chips">
+                <li class="chip">Python</li>
+                <li class="chip">FastAPI</li>
+                <li class="chip">SQLAlchemy</li>
+                <li class="chip">SQLite</li>
+                <li class="chip">Jinja2</li>
+                <li class="chip">HTML</li>
+                <li class="chip">CSS</li>
+                <li class="chip">JavaScript</li>
+                <li class="chip">SQL/Oracle</li>
+                <li class="chip">Git</li>
+              </ul>
+            </div>
           </div>
 
           <div class="code-window code-window--compact" id="codeWindow">
@@ -106,13 +125,6 @@
             </div>
             <pre class="code-window__body"><code id="codeBlock"></code></pre>
           </div>
-        </div>
-
-        <div class="stack">
-          <p class="stack__label">Stack técnico</p>
-          <p class="stack__list">
-            Python · FastAPI · SQLAlchemy · SQLite · Jinja2 · HTML · CSS · JavaScript · SQL/Oracle · Git
-          </p>
         </div>
       </div>
     </section>
@@ -168,7 +180,7 @@
         <div class="projects__grid">
           <article class="project-card reveal">
             <div class="project-card__image">
-              <img src="assets/proyecto-inventario.png" alt="Captura del dashboard del Sistema de Inventario" loading="lazy" decoding="async">
+              <img src="assets/inventario-portada.png" alt="Pantalla de bienvenida del Sistema de Inventario" loading="lazy" decoding="async">
             </div>
             <div class="project-card__body">
               <h3>Sistema de Inventario</h3>
@@ -220,6 +232,7 @@
         <div class="contact__grid">
           <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
             <!-- CONFIGURAR: reemplaza "your-form-id" con tu endpoint real de Formspree (https://formspree.io) -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true">
             <div class="form-field">
               <label for="name">Nombre</label>
               <input type="text" id="name" name="name" autocomplete="name" required>
@@ -272,14 +285,34 @@
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de capturas del proyecto" hidden>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Detalle del proyecto" hidden>
     <div class="lightbox__backdrop" data-lightbox-close></div>
     <div class="lightbox__content">
       <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Cerrar galería">&times;</button>
-      <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Captura anterior">&#8249;</button>
-      <img src="" alt="" class="lightbox__image" id="lightboxImage">
-      <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Captura siguiente">&#8250;</button>
-      <p class="lightbox__counter" id="lightboxCounter"></p>
+
+      <div class="lightbox__panel">
+        <div class="lightbox__media">
+          <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Captura anterior">&#8249;</button>
+          <button type="button" class="lightbox__zoom-trigger" id="lightboxZoomTrigger" aria-label="Ampliar imagen">
+            <img src="" alt="" class="lightbox__image" id="lightboxImage">
+            <span class="lightbox__zoom-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+            </span>
+          </button>
+          <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Captura siguiente">&#8250;</button>
+          <p class="lightbox__caption" id="lightboxCaption"></p>
+          <p class="lightbox__counter" id="lightboxCounter"></p>
+        </div>
+
+        <div class="lightbox__info" id="lightboxInfo">
+          <h3 class="lightbox__info-title" id="lightboxTitle"></h3>
+          <dl class="lightbox__info-list" id="lightboxInfoList"></dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="lightbox__zoom" id="lightboxZoom" hidden>
+      <img src="" alt="" id="lightboxZoomImage">
     </div>
   </div>
 

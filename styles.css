@@ -77,6 +77,15 @@ img, svg {
   top: 16px;
 }
 
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  left: -9999px;
+}
+
 /* ===== Header ===== */
 .header {
   position: fixed;
@@ -419,21 +428,40 @@ img, svg {
 }
 
 .stack {
-  margin-top: 40px;
+  margin-top: 16px;
 }
 
 .stack__label {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
-.stack__list {
+.stack__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chip {
   font-family: var(--font-mono);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   color: var(--text);
-  line-height: 1.9;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 14px;
+  transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* ===== Services ===== */
@@ -871,15 +899,40 @@ img, svg {
 .lightbox__content {
   position: relative;
   z-index: 1;
-  max-width: min(900px, 92vw);
-  max-height: 86vh;
+  max-width: min(1120px, 94vw);
+  max-height: 88vh;
+  width: 100%;
+}
+
+.lightbox__panel {
+  display: flex;
+  gap: 24px;
+  max-height: 88vh;
+}
+
+.lightbox__media {
+  position: relative;
+  flex: 1 1 55%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 12px;
 }
 
+.lightbox__zoom-trigger {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  max-width: 100%;
+}
+
 .lightbox__image {
+  display: block;
   max-width: 100%;
   max-height: 74vh;
   width: auto;
@@ -887,6 +940,114 @@ img, svg {
   border-radius: 8px;
   background: var(--bg-elevated);
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox__zoom-icon {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(4, 10, 7, 0.72);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.lightbox__zoom-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.lightbox__zoom-trigger:hover .lightbox__zoom-icon {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.lightbox__zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 3100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(4, 10, 7, 0.96);
+  cursor: zoom-out;
+}
+
+.lightbox__zoom[hidden] {
+  display: none;
+}
+
+.lightbox__zoom img {
+  max-width: 96vw;
+  max-height: 96vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox__info {
+  flex: 1 1 45%;
+  min-width: 0;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.lightbox__info-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.lightbox__info-list dt {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+.lightbox__info-list dt:first-child {
+  margin-top: 0;
+}
+
+.lightbox__info-list dd {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.lightbox__info-list dd ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 800px) {
+  .lightbox__panel {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .lightbox__media {
+    flex: 0 0 auto;
+  }
+
+  .lightbox__info {
+    flex: 0 0 auto;
+    max-height: none;
+  }
 }
 
 .lightbox__close {
@@ -943,9 +1104,16 @@ img, svg {
   display: none;
 }
 
+.lightbox__caption {
+  max-width: 90%;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
 .lightbox__counter {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
 }
 
