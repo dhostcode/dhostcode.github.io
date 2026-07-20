@@ -38,7 +38,7 @@ if (navToggle && nav) {
 // ===== "desarrollador.js" code block =====
 const codeLines = [
   `<span class="tok-kw">const</span> <span class="tok-plain">desarrollador</span> <span class="tok-punct">=</span> <span class="tok-punct">{</span>`,
-  `  <span class="tok-key">nickName</span><span class="tok-punct">:</span> <span class="tok-string">'diegohost'</span><span class="tok-punct">,</span>`,
+  `  <span class="tok-key">nickName</span><span class="tok-punct">:</span> <span class="tok-string">'Dhost'</span><span class="tok-punct">,</span>`,
   `  <span class="tok-key">fullName</span><span class="tok-punct">:</span> <span class="tok-string">'Diego Armando'</span><span class="tok-punct">,</span>`,
   `  <span class="tok-key">rol</span><span class="tok-punct">:</span> <span class="tok-string">'Desarrollador de Sistemas Informáticos'</span><span class="tok-punct">,</span>`,
   `  <span class="tok-key">ubicacion</span><span class="tok-punct">:</span> <span class="tok-string">'Panamá'</span><span class="tok-punct">,</span>`,
