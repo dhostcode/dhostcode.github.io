@@ -214,20 +214,6 @@ img, svg {
   letter-spacing: -0.02em;
 }
 
-.logo::before {
-  content: 'D';
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--accent-strong), #166534);
-  color: var(--accent-ink);
-  font-size: 15px;
-  font-weight: 900;
-}
-
 .header__actions {
   display: flex;
   align-items: center;
